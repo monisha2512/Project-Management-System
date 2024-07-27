@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}
+        PROJECT MANAGEMENT SYSTEM</title>
+        <style type="text/css">
+            #i1 {background-color:ivory;color:black;}  
+            #i2{color:white;}
+        
+        body{
+            
+      background-image: url('{% static "weeklyprogress.jpg" %}');text-align: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+        }
+        header {
+            background-color:#e9e9c6;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #0f0e0e;
+            color: #bb8d8d;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ebe1e1;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        .active {
+            display: block; /* Show the active section */
+        }
+        form{
+            background-color:rgba(255, 255, 255, 0.8);
+            display:inline-block; 
+            margin:20px;
+            padding:20px;
+            border:1px solid #566e8d;border-radius:5px;
+        }
+        </style>
+    </head>
+<body>
+<h1 >Project Management System</h1>
+    <nav>
+        <a href="/home/">Home</a> | 
+        <a href="/teamcreation/">Team Creation</a> |
+        <a href="/createproject/">Project Creation</a> | 
+        <a href="/uploadsynopsis/">Upload Synopsis</a> |
+        <a href="/weeklyprogress/">Weekly Progress</a> |
+        <a href="/reportupload/">Upload Report</a> | 
+        <a href="/viewschedule/">View Schedule</a> |
+        <a href="/logout/">Logout</a>
+    </nav>
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>

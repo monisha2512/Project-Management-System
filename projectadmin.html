@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}
+        PROJECT MANAGEMENT SYSTEM</title>
+        <style type="text/css">
+        body{
+           background-color:aliceblue; font-family:sans-serif;text-align:center
+        }
+        header {
+            background-color: #93e2ef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #0f0e0e;
+            color: #bb8d8d;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ebe1e1;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        .active {
+            display: block; /* Show the active section */
+        }
+        </style>
+    </head>
+<body>
+<h2>Project Administration</h2>
+    <nav>
+        <a href="/viewstudentlist/">View student list</a> | 
+        <a href="/viewprojectteam/">View project team</a> | 
+        <a href="/viewprojectstatus/">View project status</a> |
+        <a href="/weeklyreport/">Weekly Report</a> |
+        <a href="/schedule/">Schedule</a>
+    </nav>
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+</body>
+</html>

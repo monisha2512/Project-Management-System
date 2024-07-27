@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block title %} Schedule View {% endblock %}
+{% load static %}
+    <style>
+        body{
+            
+            background-image: url('{% static "viewschedule.jpeg" %}');text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+              }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+{% block content %}
+    <h1>View Schedule</h1>
+    <table border="" align="center">
+        <thead>
+            <tr>
+              
+                <th>Event</th>
+                <th>Date</th>
+                <th>Instruction</th>
+                <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in s %}
+            <tr>
+                <td>{{ event.event }}</td>
+                <td>{{ event.date }}</td>
+                <td>{{ event.instrution }}</td>
+                <td>{{ event.deadline }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

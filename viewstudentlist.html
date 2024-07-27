@@ -1,0 +1,42 @@
+{% extends 'projectadmin.html' %}
+{% block title %} View Student List {% endblock %}
+{% block content %}
+  <h1>Student List</h1>
+<style>
+  body{
+    counter-reset:rowNumber;
+  }
+  table tr td:first-child:before{
+    counter-increment:rowNumber;
+    content:counter(rowNumber)"  ";
+  }
+</style>
+  <div class="form-group">
+    <!--label for="section">Section:</label>
+    <select name="section" id="section" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select-->
+</div><br>
+<table border="1" align="center">
+  <thead>
+    <tr>
+      <th>Sl.No</th>
+      <th>USN</th>
+      <th>Student Name</th>
+      <th>Sec</th>
+      </tr>
+    </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <td> </td>
+      <td>{{ student.usn }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.sec }}</td>
+      </tr>
+  {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

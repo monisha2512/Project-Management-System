@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  {% load static %}   </head>
+<body>
+
+  <h1>View Team and Project Title</h1>
+
+  <h2>Project Title: {{ project.title }}</h2>
+  <h2>Domain: {{ project.domain }}</h2>
+  <h2>Team Members: </h2>
+
+  <table border="">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>USN</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for member in project.team_members %}  <tr>
+        <td>{{ member.name }}</td>
+        <td>{{ member.usn }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+</html>

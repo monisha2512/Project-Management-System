@@ -1,0 +1,80 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <style>
+        body{
+            
+            background-image: url('{% static "register.jpg" %}');text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+              }
+        h2{margin-bottom:10px;}
+        form{
+            background-color:rgba(255, 255, 255, 0.8);display:inline-block; margin:20px; padding:20px;border:1px solid #566e8d;border-radius:5px;
+        }
+        button{
+            background-color:lightblue;cursor:pointer;padding:5px 20px;
+        }
+    </style>
+ </head>
+<body>
+    <h1>Registration Form</h1>
+    <form method="post" action="/regstudent/">
+        {% csrf_token %} 
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required autofocus>
+        </div><br>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+        </div><br>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone"> </div><br>
+        <div class="form-group">
+                <label for="usn">USN:</label>
+                <input type="text" name="usn" id="usn"> </div><br>
+        <div class="form-group">
+            <label for="semester">Semester:</label>
+            <input type="number" name="semester" id="semester" required>
+        </div><br>
+        <div class="form-group">
+            <label for="section">Section:</label>
+            <select name="section" id="section" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+        </div><br>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" id="male" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="Female" required>
+            <label for="female">Female</label>
+        </div><br>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div><br>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required>
+        </div><br>
+        <button type="submit">Register</button>
+    </form>
+
+    {% if form.errors %}
+        <ul class="errorlist">
+            {% for error in form.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

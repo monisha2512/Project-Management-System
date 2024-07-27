@@ -1,0 +1,27 @@
+{% extends 'projectadmin.html' %}
+{% block title %} View Project status {% endblock %}
+{% block content %}
+  <h1>Project status</h1>
+
+  <table border="1" align="center">
+    <thead>
+      <tr>
+        <th>Project ID</th>
+        <th>Team ID</th>
+        <th>Synopsis</th>
+        <th>Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in projects %}
+      <tr>
+        <td>{{ project.p_id }}</td>
+        <td>{{ project.t_id_id }}</td>
+        <td>{% if project.synopsis %}<a href="{{ project.synopsis }}" target="blank">Click here</a>{% else %}-{% endif %}</td>
+        <td><a href="{{ project.report }}" target="_blank">View Report</a></td>   </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% csrf_token %}
+{% endblock %}

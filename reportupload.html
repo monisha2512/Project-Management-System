@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} Project Synopsis Upload {% endblock %}
+  <style>
+    body{
+            
+            background-image: url('{% static "uploadsynopsis.jpg" %}');text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+              }
+    h2{margin-bottom:10px;}
+    form{
+        background-color:rgba(255, 255, 255, 0.8);display:inline-block; margin:20px; padding:20px;border:1px solid #566e8d;border-radius:5px;
+    }
+    button{
+        background-color:lightblue;cursor:pointer;padding:5px 20px;
+    }
+</style>
+{% block content %}
+
+  <h1>Upload Report</h1>
+  <form method="post" enctype="multipart/form-data">
+    Team ID: <select name="tid">
+        {% for team in teams %}
+        <option value="{{ team.t_id }}">{{ team.t_id }}</option>
+        {% endfor %}
+  
+    </select>
+ 
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+
+  {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}" target="_blank">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
+  </form>
+  {% endblock %}

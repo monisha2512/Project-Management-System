@@ -1,0 +1,28 @@
+{% extends 'projectadmin.html' %}
+{% block title %} View Project Team {% endblock %}
+{% block content %}
+
+  <h1>View Project Team</h1>
+
+  <div id="teamBoxes">
+    {% if teams %}
+      {% for proj in projects %}
+        <div class="team-box">
+          <h3>Team Id: {{proj.t_id.t_id}}</h3>
+          <h3>Project Title: {{ proj.title }}</h3> <!-- Assuming team has an 'id' field --> 
+                <!-- Retrieve Project Title -->
+                     
+          <h3>        
+            Member-1: {{ proj.t_id.member1 }}<br/>
+            <li>Member-2: {{ proj.t_id.member2 }}</li>
+            <li>Member-3: {{ proj.t_id.member3 }}</li>
+            <li>Member-4: {{ proj.t_id.member4 }}</li>
+          </h3>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No teams found for this section.</p>
+    {% endif %}
+  </div>
+
+{% endblock %}

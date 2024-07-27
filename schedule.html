@@ -1,0 +1,24 @@
+{% extends 'projectadmin.html' %}
+{% block title %} Schedule event {% endblock %}
+{% block content %}
+
+  <h1>Schedule Event</h1>
+
+  <form method="post" action="/eventschedule/">
+    {% csrf_token %}
+    <label for="eventDate">Date:</label>
+    <input type="date" id="eventDate" name="eventDate" required><br><br>
+
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" name="eventName" placeholder="Enter event name" required><br><br>
+
+    <label for="eventInstructions">Instructions:</label>
+    <textarea id="eventInstructions" name="eventInstructions" rows="5" placeholder="Write detailed instructions here"></textarea><br><br>
+
+    <label for="deadline">Deadline:</label>
+    <input type="date" id="deadline" name="deadline" required><br><br>
+    
+    <button type="submit">Schedule</button>
+  </form>
+
+  {% endblock %}

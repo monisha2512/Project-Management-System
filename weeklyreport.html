@@ -1,0 +1,28 @@
+{% extends 'projectadmin.html' %}
+{% block title %} View weekly report {% endblock %}
+{% block content %}
+  <h1>Weekly Report</h1>
+
+  
+  <table border="" align="center">
+    <thead>
+      <tr>
+       
+        <th>Project No.:</th>
+        <th>Week</th>
+        <th>Date</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for week in w %}
+      <tr>
+        <td>{{ week.p_id_id}}</td>
+        <td>{{ week.week_no }}</td>
+        <td>{{ week.date }}</td>
+        <td>{{ week.summary }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
